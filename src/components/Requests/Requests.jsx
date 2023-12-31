@@ -52,14 +52,15 @@ const Requests = () => {
 
     const [comment, setComment] = useState('');
     const [reasonReg, setreasonReg] = useState(false);
-    const requests_admin = requests.map(({ name, date, RoomName, startTime, requestStatus_1, _id, createdAt }) => ({
+    const requests_admin = requests.map(({ name, date, RoomName, startTime, requestStatus_1, _id, createdAt,attended }) => ({
         name,
         date,
         RoomName,
         startTime,
         requestStatus_1,
         _id,
-        createdAt
+        createdAt,
+        attended
     }));
     const [loading, setLoading] = useState(true);
     const real_req = requests_admin?.slice(0, 20)
