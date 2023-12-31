@@ -14,6 +14,7 @@ import PrivateRequest from './components/PrivateRequest/PrivateRequest'
 import DashBoardExec from './Layouts/DashBoardExec/DashBoardExec'
 import BookPortal from './components/BookPortal/BookPortal'
 import PdfViewer from './components/GeneratePdf/main'
+import Attendance from './components/Attendance/Attendance'
 
 function App() {
   // here add <BrowserRouter> if error and also add provider in main.jsx
@@ -32,6 +33,7 @@ function App() {
         <Route path="request/admin/:id" Component={()=>user?.result?.post==='Admin'?<PrivateRequest/>:<Navigate to="/denied"/>} />
         <Route path="/executive/*" Component={()=>user?.result?.post==='Executive'?<DashBoardExec/>:<Navigate to="/denied"/>} />
         <Route path="request/executive/:id" Component={()=>user?.result?.post==='Executive'?<PrivateRequest/>:<Navigate to="/denied"/>} />
+        <Route path="attendance/executive/:id" Component={()=>user?.result?.post==='Executive'?<Attendance/>:<Navigate to="/denied"/>} />
         <Route path="/adminOne/*" Component={()=>user?.result?.post==='Admin_1'?<DashboardOne/>:<Navigate to="/denied"/>} />
         <Route path="request/adminOne/:id" Component={()=>user?.result?.post==='Admin_1'?<PrivateRequest/>:<Navigate to="/denied"/>} />
         <Route path="/adminTwo/*" Component={()=>user?.result?.post==='Admin_2'?<DashboardTwo/>:<Navigate to="/denied"/>} />

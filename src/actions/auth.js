@@ -56,7 +56,7 @@ export const signup = (input, history) => async (dispatch) => {
     try {
         const { data } = await api.signUp(input);
         dispatch({ type: SIGNUP, data });
-        history(/admin/createagent)
+        history('/admin/createagent')
     } catch (error) {
         throw error
     }
