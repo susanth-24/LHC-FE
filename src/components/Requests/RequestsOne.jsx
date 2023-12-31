@@ -109,11 +109,11 @@ const RequestsOne = () => {
     };
     return (
         <div className="!z-5 mt-8 relative flex flex-col rounded-[20px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 w-full pb-10 p-4 h-full">
-            {requests?.lenght===0&&(
+            {requests?.lenght === 0 && (
                 <>
-                <div>
-                    Loading....
-                </div>
+                    <div>
+                        Loading....
+                    </div>
                 </>
             )}
             <header className="relative flex items-center justify-between">
@@ -165,6 +165,9 @@ const RequestsOne = () => {
                                             requestStatus
                                         </th>
                                         <th scope="col" class="px-6 py-3">
+                                            attended
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
                                             action
                                         </th>
 
@@ -192,6 +195,9 @@ const RequestsOne = () => {
                                                 </td>
                                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                     {row.requestStatus_2}
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {row.attended ? 'Yes' : 'No'}
                                                 </td>
                                                 <Link to={`/request/adminOne/${row._id}`}>
                                                     <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
@@ -222,6 +228,9 @@ const RequestsOne = () => {
                                                 </td>
                                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                     {row.requestStatus_2}
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {row.attended ? 'Yes' : 'No'}
                                                 </td>
                                                 <Link to={`/request/adminOne/${row._id}`}>
                                                     <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
@@ -267,6 +276,9 @@ const RequestsOne = () => {
                                             requestStatus
                                         </th>
                                         <th scope="col" class="px-6 py-3">
+                                            attended
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
                                             action
                                         </th>
 
@@ -294,6 +306,9 @@ const RequestsOne = () => {
                                                 </td>
                                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                     {row.requestStatus_3}
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {row.attended ? 'Yes' : 'No'}
                                                 </td>
                                                 <Link to={`/request/adminTwo/${row._id}`}>
                                                     <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
@@ -324,6 +339,9 @@ const RequestsOne = () => {
                                                 </td>
                                                 <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                     {row.requestStatus_3}
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {row.attended ? 'Yes' : 'No'}
                                                 </td>
                                                 <Link to={`/request/adminTwo/${row._id}`}>
                                                     <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">

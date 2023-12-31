@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { attend, getRequest } from '../../actions/requests';
 import { getRoom } from '../../actions/rooms';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,25 +28,28 @@ function isWithinDistance(coord1, lat2, lon2, distanceThreshold) {
     const distance = haversineDistance(lat1, lon1, lat2, lon2);
     return distance <= distanceThreshold;
 }
-
+function convertDateFormat(inputDate) {
+    const [month, day, year] = inputDate.split('/');
+    const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    return formattedDate;
+  }
 function isCurrentTimeInRange(startTime, endTime, targetDate) {
     const now = new Date();
-    const currentDate = now.toISOString().split('T')[0]; // Get current date in "YYYY-MM-DD" format
-
-    const startTimeUTC = new Date(`${currentDate}T${startTime}Z`);
-    const endTimeUTC = new Date(`${currentDate}T${endTime}Z`);
-    const targetDateUTC = new Date(`${targetDate}T00:00:00Z`);
-
+    const currentDate = now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }).split(',')[0];
+    const startTimeIST = new Date(`${targetDate}T${startTime}`);
+    const endTimeIST = new Date(`${targetDate}T${endTime}`);
+  console.log(convertDateFormat(currentDate))
     return (
-        now >= startTimeUTC &&
-        now <= endTimeUTC &&
-        now.toISOString().split('T')[0] === targetDateUTC.toISOString().split('T')[0]
+      now >= startTimeIST &&
+      now <= endTimeIST &&
+      convertDateFormat(currentDate) === targetDate
     );
-}
+  }
 const MainAttend = () => {
     const [position, setPosition] = useState({ latitude: null, longitude: null });
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { id } = useParams();
     useEffect(() => {
         dispatch(getRequest(id));
@@ -75,11 +78,11 @@ const MainAttend = () => {
     }, []);
     let res, check;
     if (room) {
-        const res = isWithinDistance(room?.Location, position?.latitude, position?.longitude, 50)
+        res = isWithinDistance(room?.Location, position?.latitude, position?.longitude, 50)
         console.log(res)
     }
     if (request) {
-        const check = isCurrentTimeInRange(request?.startTime, request?.endTime, request?.date);
+        check = isCurrentTimeInRange(request?.startTime, request?.endTime, request?.date);
         console.log(check)
     }
     const abled = res && check;
@@ -103,7 +106,7 @@ const MainAttend = () => {
             setShowErrorModal(true);
         }
     };
-
+console.log(abled)
     return (
         <div className="mt-10 mb-10 flex h-full w-full items-center justify-center px-2 md:mx-0 md:px-0 lg:mb-10 lg:items-center lg:justify-start">
 
@@ -132,7 +135,7 @@ const MainAttend = () => {
     
     
     
-                            <button type="submit" disabled={abled} onClick={handleSubmit} className="linear mt-2 w-full rounded-xl bg-[#422AFB] py-[12px] text-base font-medium text-white transition duration-200 hover:bg-[#3311DB] active:bg-[#2111A5] ">
+                            <button type="submit" disabled={!abled} onClick={handleSubmit} className="linear mt-2 w-full rounded-xl bg-[#422AFB] py-[12px] text-base font-medium text-white transition duration-200 hover:bg-[#3311DB] active:bg-[#2111A5] ">
                                 {abled ? (
                                     <h1>
                                         Confirm Attendance</h1>

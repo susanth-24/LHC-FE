@@ -118,6 +118,9 @@ const Requests = () => {
                                     requestStatus
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    attended
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     action
                                 </th>
 
@@ -144,6 +147,9 @@ const Requests = () => {
                                         </td>
                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             {row.requestStatus_1}
+                                        </td>
+                                        <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {row.attended ? 'Yes' : 'No'}
                                         </td>
                                         <Link to={`/request/admin/${row._id}`}>
                                             <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
@@ -173,6 +179,9 @@ const Requests = () => {
                                         </td>
                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             {row.requestStatus_1}
+                                        </td>
+                                        <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {row.attended ? 'Yes' : 'No'}
                                         </td>
                                         <Link to={`/request/admin/${row._id}`}>
                                             <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
@@ -218,6 +227,9 @@ const Requests = () => {
                                     requestStatus
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    attended
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     action
                                 </th>
 
@@ -245,6 +257,9 @@ const Requests = () => {
                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             {row.requestStatus_1}
                                         </td>
+                                        <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {row.attended ? 'Yes' : 'No'}
+                                        </td>
                                         <Link to={`/request/executive/${row._id}`}>
                                             <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">
                                                 Edit
@@ -254,7 +269,7 @@ const Requests = () => {
                                     </tr>
                                 ))
                             ) : (
-                                filteredRequests?.slice(0,20)?.map((row, index) => (
+                                filteredRequests?.slice(0, 20)?.map((row, index) => (
                                     <tr key={index} className="bg-white border-b">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             {row.name}
@@ -273,6 +288,9 @@ const Requests = () => {
                                         </td>
                                         <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                             {row.requestStatus_1}
+                                        </td>
+                                        <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {row.attended ? 'Yes' : 'No'}
                                         </td>
                                         <Link to={`/request/executive/${row._id}`}>
                                             <td className="px-6 py-4 font-medium text-gray-900 hover:underline whitespace-nowrap">

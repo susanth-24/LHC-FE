@@ -102,9 +102,13 @@ const PrivateRequest = () => {
                           <label className="font-semibold text-sm text-black pb-1 block">End Time: <span className="text-gray-900 font-medium">{row?.endTime}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Reason : <span className="text-gray-900 font-medium">{row?.reason}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Remarks : <span className="text-gray-900 font-medium">{row?.remarks}</span></label>
+                          <label className="font-semibold text-sm text-black pb-1 block">Attended : <span className="text-gray-900 font-medium">{row?.attended ? 'Yes' : 'No'}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Admin Status : <span className="text-gray-900 font-medium">{row?.requestStatus_1}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">FA {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_2}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">GS {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_3}</span></label>
+                          {row?.rejectComment && (
+                            <label class="font-semibold text-sm text-black pb-1 block">Rejection Reason: {row.rejectComment}</label>
+                          )}
                         </div>
 
                       </div>
@@ -205,9 +209,13 @@ const PrivateRequest = () => {
                           <label className="font-semibold text-sm text-black pb-1 block">End Time: <span className="text-gray-900 font-medium">{row?.endTime}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Reason : <span className="text-gray-900 font-medium">{row?.reason}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Remarks : <span className="text-gray-900 font-medium">{row?.remarks}</span></label>
+                          <label className="font-semibold text-sm text-black pb-1 block">Attended : <span className="text-gray-900 font-medium">{row?.attended ? 'Yes' : 'No'}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Admin Status : <span className="text-gray-900 font-medium">{row?.requestStatus_1}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">FA {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_2}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">GS {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_3}</span></label>
+                          {row?.rejectComment && (
+                            <label class="font-semibold text-sm text-black pb-1 block">Rejection Reason: {row.rejectComment}</label>
+                          )}
                         </div>
 
                       </div>
@@ -298,9 +306,13 @@ const PrivateRequest = () => {
                           <label className="font-semibold text-sm text-black pb-1 block">End Time: <span className="text-gray-900 font-medium">{row?.endTime}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Reason : <span className="text-gray-900 font-medium">{row?.reason}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Remarks : <span className="text-gray-900 font-medium">{row?.remarks}</span></label>
+                          <label className="font-semibold text-sm text-black pb-1 block">Attended : <span className="text-gray-900 font-medium">{row?.attended ? 'Yes' : 'No'}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Admin Status : <span className="text-gray-900 font-medium">{row?.requestStatus_1}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">FA {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_2}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">GS {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_3}</span></label>
+                          {row?.rejectComment && (
+                            <label class="font-semibold text-sm text-black pb-1 block">Rejection Reason: {row.rejectComment}</label>
+                          )}
                         </div>
 
                       </div>
@@ -386,9 +398,13 @@ const PrivateRequest = () => {
                           <label className="font-semibold text-sm text-black pb-1 block">End Time: <span className="text-gray-900 font-medium">{row?.endTime}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Reason : <span className="text-gray-900 font-medium">{row?.reason}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Remarks : <span className="text-gray-900 font-medium">{row?.remarks}</span></label>
+                          <label className="font-semibold text-sm text-black pb-1 block">Attended : <span className="text-gray-900 font-medium">{row?.attended ? 'Yes' : 'No'}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">Admin Status : <span className="text-gray-900 font-medium">{row?.requestStatus_1}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">FA {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_2}</span></label>
                           <label className="font-semibold text-sm text-black pb-1 block">GS {row?.category} Status : <span className="text-gray-900 font-medium">{row?.requestStatus_3}</span></label>
+                          {row?.rejectComment && (
+                            <label class="font-semibold text-sm text-black pb-1 block">Rejection Reason: {row.rejectComment}</label>
+                          )}
                         </div>
 
                       </div>
