@@ -41,6 +41,16 @@ export const getRequest = (id) => async (dispatch) => {
     }
 };
 
+export const attend = (id) => async (dispatch) => {
+    const user = JSON.parse(localStorage.getItem('profile'));
+    try {
+        await api.attend(id, user?.token);
+        
+    } catch (error) {
+        //throw error;
+    }
+}
+
 export const acceptRequest_1 = (dat) => async (dispatch) => {
     const user = JSON.parse(localStorage.getItem('profile'));
     try {

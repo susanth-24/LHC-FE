@@ -45,6 +45,7 @@ export const unbanRoom = (id) => API.patch(`/rooms/${id}/unban`)
 export const createRequest = (request) => API.post('/requests', request);
 export const fetchRequests = () => API.get('/requests');
 export const fetchRequest = (id) => API.get(`/requests/${id}`)
+export const attend = (id) => API.patch(`/requests/${id}/attend`)
 export const acceptReq_1 = (id) => API.patch(`/requests/${id}/accept_1`)
 export const rejectReq_1 = (id,com) => API.patch(`/requests/${id}/reject_1`,com)
 export const acceptReq_2 = (id) => API.patch(`/requests/${id}/accept_2`)
