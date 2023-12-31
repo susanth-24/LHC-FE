@@ -394,29 +394,38 @@ const PrivateRequest = () => {
                       </div>
                     </div>
                     <div className='flex flex-wrap justify-end gap-3 mt-5'>
-                    {(row?.requestStatus_1 === 'Approved' && row?.requestStatus_2 === 'Approved' && row?.requestStatus_3 === 'Approved') && (
-                      <Link to={`/Booked/pdf/${row?._id}`}>
-                        <button type="button" class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs 
+                      {(row?.requestStatus_1 === 'Approved' && row?.requestStatus_2 === 'Approved' && row?.requestStatus_3 === 'Approved') && (
+                        <>
+                          <Link to={`/attendance/executive/${row?._id}`}>
+                            <button type="button" class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs 
                         py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
-                          Download PDF
+                              Attendance
+                            </button>
+                          </Link>
+                          <Link to={`/Booked/pdf/${row?._id}`}>
+                            <button type="button" class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs 
+                        py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                              Download PDF
+                            </button>
+                          </Link>
+                        </>
+                      )}
+                      {isButtonAcClicked[row?._id] ? null : (
+                        (row?.requestStatus_1 !== 'Declined' || row?.requestStatus_2 !== 'Declined' || row?.requestStatus_3 !== 'Declined') &&
+                        (row?.requestStatus_1 !== 'Withdrawed' || row?.requestStatus_2 !== 'Withdrawed' || row?.requestStatus_3 !== 'Withdrawed') && (
+                          <button onClick={() => {
+                            setIsButtonAcClicked({ ...isButtonAcClicked, [row?._id]: true });
+                            dispatch(withdrawRequest(row?._id));
+                            dispatch(withdrawAvail(row?.RoomId, row?.UID));
+                          }}
+                            class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                            <span className="inline-block mr-2">Withdraw</span>
+
                           </button>
-                      </Link>)}
-                    {isButtonAcClicked[row?._id] ? null : (
-                      (row?.requestStatus_1 !== 'Declined' || row?.requestStatus_2 !== 'Declined' || row?.requestStatus_3 !== 'Declined') &&
-                      (row?.requestStatus_1 !== 'Withdrawed' || row?.requestStatus_2 !== 'Withdrawed' || row?.requestStatus_3 !== 'Withdrawed') && (
-                        <button onClick={() => {
-                          setIsButtonAcClicked({ ...isButtonAcClicked, [row?._id]: true });
-                          dispatch(withdrawRequest(row?._id));
-                          dispatch(withdrawAvail(row?.RoomId, row?.UID));
-                        }} 
-                        class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">                          
-                        <span className="inline-block mr-2">Withdraw</span>
-                          
-                        </button>
-                      )
-                    )}
+                        )
+                      )}
                     </div>
-                    
+
 
 
                   </div>
