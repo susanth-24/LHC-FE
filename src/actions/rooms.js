@@ -25,7 +25,7 @@ export const updateRoom=(id,upd)=>async (dispatch) => {
 export const createRoom = (room, history) => async (dispatch) => {
     try {
         const { data } = await api.createRoom(room);
-        history(`/Halls/${data._id}`);
+        history(`/admin/createroom`);
         dispatch({ type: CREATE, payload: data });
 
     } catch (error) {
