@@ -125,10 +125,6 @@ const PrivateRequest = () => {
                               if (response.success) {
                                 //row.requestStatus_1 = "Accepted";
                                 dispatch(approveAvail_1(row?.RoomId, row?.UID));
-                                dispatch(acceptRequest_2(row))
-                                dispatch(approveAvail_2(row?.RoomId, row?.UID))
-                                dispatch(acceptRequest_3(row))
-                                dispatch(approveAvail_3(row?.RoomId, row?.UID))
                               } else {
                                 null//add a pop up here
 
