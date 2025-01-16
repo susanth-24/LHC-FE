@@ -115,7 +115,7 @@ const PrivateRequest = () => {
                     </div>
 
                     {isButtonAcClicked[row?._id] ? (null) : (
-                      row?.requestStatus_1 === "Pending" && row?.requestStatus_2 === "Approved" && row?.requestStatus_3 === "Approved" ? (<div className='flex flex-wrap justify-end gap-3 mt-5'>
+                      row?.requestStatus_1 === "Pending" && row?.requestStatus_2 === "Pending" && row?.requestStatus_3 === "Pending" ? (<div className='flex flex-wrap justify-end gap-3 mt-5'>
                         <button onClick={() => {
 
                           setIsButtonAcClicked({ ...isButtonAcClicked, [row?._id]: true });
