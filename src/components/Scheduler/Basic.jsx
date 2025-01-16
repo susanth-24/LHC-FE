@@ -73,6 +73,11 @@ function convertRequestsToEvents(requests) {
             bgColor = '#964B00';
             status = false;
             title = `Booking has been withdrawd by Club ${request.name} for ${request.RoomName} (Withdrawed)`;
+        }
+        else if(request.requestStatus_1 === 'Declined' && request.requestStatus_2 === 'Declined' && request.requestStatus_3 === 'Declined'){
+            bgColor = 'red';
+            status = false;
+            title = `Booking Request by Club ${request.name} for ${request.RoomName} (Declined)`;
         }else {
             status = true;
             bgColor = 'BBBBFF';
